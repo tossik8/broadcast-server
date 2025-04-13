@@ -74,6 +74,10 @@ broadcast-server connect --host <host> -p <port>
 - The client uses a separate thread to receive messages, allowing simultaneous sending and receiving.
 - If the server closes, clients detect the disconnection and exit cleanly using a `SIGINT` signal to interrupt the input prompt.
 
+## Credits
+
+This project was inspired by the [Broadcast Server](https://roadmap.sh/projects/broadcast-server) project idea from roadmap.sh.
+
 ## Author
 
 Nikita Toropov
