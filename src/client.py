@@ -23,9 +23,10 @@ def start_client(args: argparse.Namespace) -> None:
         try:
             client.connect((args.host, args.port))
         except:
-            logger.error(f"Could not connect to {args.host}:{args.port}")
+            logger.error(f"Could not connect to {args.host}:{args.port}.")
             return
-        logger.info(f"Connected to {args.host}:{args.port}")
+        logger.info(f"Listening on {client.getsockname()}.")
+        logger.info(f"Connected with {args.host}:{args.port}.")
         receive_message_thread = Thread(target=_receive_messages, args=[client])
         receive_message_thread.start()
         while True:
@@ -36,5 +37,5 @@ def start_client(args: argparse.Namespace) -> None:
                 client.close()
                 break
             client.sendall(user_input.encode())
-    logger.info(f"Connection closed with {args.host}:{args.port}")
+    logger.info(f"Connection closed with {args.host}:{args.port}.")
 
